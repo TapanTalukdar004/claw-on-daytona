@@ -25,12 +25,25 @@ async function main() {
       // Auto-install Daytona
       console.log(chalk.cyan('Attempting to install Daytona automatically...\n'));
       try {
-        await daytona.installDaytona();
+        const installationSuccess = await daytona.installDaytona();
+        if (!installationSuccess) {
+          console.log(chalk.yellow('\n📋 Manual installation required.'));
+          console.log(chalk.cyan('\nAfter installing Daytona manually, run this command again:'));
+          console.log(chalk.bold.white('  claw-on-daytona'));
+          console.log(chalk.cyan('\nOr if using npx:'));
+          console.log(chalk.bold.white('  npx claw-on-daytona'));
+          process.exit(1);
+        }
         console.log(chalk.green('\n✅ Daytona installed successfully!'));
         console.log(chalk.cyan('Continuing with the workflow...\n'));
       } catch (error) {
         console.log(chalk.red('\n❌ Failed to install Daytona automatically.'));
-        console.log(chalk.red('Please install Daytona manually and try again.'));
+        console.log(chalk.yellow('\n📋 Please install Daytona manually:'));
+        console.log(chalk.cyan('1. Visit: https://daytona.io/download'));
+        console.log(chalk.cyan('2. Download and run the installer for your OS'));
+        console.log(chalk.cyan('3. Ensure Daytona is in your PATH'));
+        console.log(chalk.cyan('\nAfter installation, run this command again:'));
+        console.log(chalk.bold.white('  claw-on-daytona'));
         process.exit(1);
       }
     }
