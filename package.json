@@ -1,0 +1,50 @@
+{
+  "name": "claw-on-daytona",
+  "version": "1.0.0",
+  "description": "Remote-First AI Agent Gateway - Deploy OpenClaw on Daytona sandboxes",
+  "main": "bin/cli.js",
+  "bin": {
+    "claw-on-daytona": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "daytona",
+    "openclaw",
+    "ai",
+    "agent",
+    "sandbox",
+    "cli",
+    "remote",
+    "development",
+    "cloud",
+    "infrastructure"
+  ],
+  "author": "Tapan Talukdar <tapan.talukdar004@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ora": "^6.3.1",
+    "execa": "^5.1.1",
+    "chalk": "^4.1.2",
+    "boxen": "^6.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TapanTalukdar004/claw-on-daytona.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TapanTalukdar004/claw-on-daytona/issues"
+  },
+  "homepage": "https://github.com/TapanTalukdar004/claw-on-daytona#readme",
+  "files": [
+    "bin/",
+    "src/",
+    "LICENSE",
+    "README.md"
+  ]
+}
