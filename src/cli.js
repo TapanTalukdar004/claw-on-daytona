@@ -21,11 +21,16 @@ async function main() {
     if (!isDaytonaInstalled) {
       console.log(chalk.yellow('\n⚠️  Daytona is required for this tool.'));
       console.log(chalk.yellow('Please install it from: https://daytona.io/docs\n'));
-      const shouldInstall = false; // In a real CLI, you'd prompt the user
-      if (shouldInstall) {
+      
+      // Auto-install Daytona
+      console.log(chalk.cyan('Attempting to install Daytona automatically...\n'));
+      try {
         await daytona.installDaytona();
-      } else {
-        console.log(chalk.red('Exiting. Daytona is not installed.'));
+        console.log(chalk.green('\n✅ Daytona installed successfully!'));
+        console.log(chalk.cyan('Continuing with the workflow...\n'));
+      } catch (error) {
+        console.log(chalk.red('\n❌ Failed to install Daytona automatically.'));
+        console.log(chalk.red('Please install Daytona manually and try again.'));
         process.exit(1);
       }
     }
