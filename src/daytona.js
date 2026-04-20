@@ -1,5 +1,5 @@
 const execa = require('execa');
-const ora = require('ora');
+const ora = require('ora').default;
 
 class DaytonaManager {
   constructor() {
