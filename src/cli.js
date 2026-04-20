@@ -28,22 +28,32 @@ async function main() {
         const installationSuccess = await daytona.installDaytona();
         if (!installationSuccess) {
           console.log(chalk.yellow('\n📋 Manual installation required.'));
-          console.log(chalk.cyan('\nAfter installing Daytona manually, run this command again:'));
+          console.log(chalk.cyan('\n📝 Installation Options:'));
+          console.log(chalk.cyan('1. Primary: https://daytona.io/docs/installation'));
+          console.log(chalk.cyan('2. Alternative: https://github.com/daytonaio/daytona'));
+          console.log(chalk.cyan('3. Search: "Install Daytona CLI" for your OS'));
+          console.log(chalk.cyan('\n🔧 After installing Daytona, run this command again:'));
           console.log(chalk.bold.white('  claw-on-daytona'));
-          console.log(chalk.cyan('\nOr if using npx:'));
+          console.log(chalk.cyan('\n📦 Or if using npx:'));
           console.log(chalk.bold.white('  npx claw-on-daytona'));
+          console.log(chalk.gray('\n💡 Tip: If the Daytona website is inaccessible, check GitHub for installation instructions.'));
           process.exit(1);
         }
         console.log(chalk.green('\n✅ Daytona installed successfully!'));
         console.log(chalk.cyan('Continuing with the workflow...\n'));
       } catch (error) {
         console.log(chalk.red('\n❌ Failed to install Daytona automatically.'));
-        console.log(chalk.yellow('\n📋 Please install Daytona manually:'));
-        console.log(chalk.cyan('1. Visit: https://daytona.io/download'));
-        console.log(chalk.cyan('2. Download and run the installer for your OS'));
-        console.log(chalk.cyan('3. Ensure Daytona is in your PATH'));
-        console.log(chalk.cyan('\nAfter installation, run this command again:'));
+        console.log(chalk.yellow('\n📋 Manual Installation Instructions:'));
+        console.log(chalk.cyan('🔗 Primary URL: https://daytona.io/download'));
+        console.log(chalk.cyan('🔗 Alternative: https://github.com/daytonaio/daytona/releases'));
+        console.log(chalk.cyan('\n📥 Installation Steps:'));
+        console.log(chalk.cyan('1. Download Daytona for your operating system'));
+        console.log(chalk.cyan('2. Run the installer or extract the binary'));
+        console.log(chalk.cyan('3. Add Daytona to your PATH (if not automatic)'));
+        console.log(chalk.cyan('4. Verify with: daytona --version'));
+        console.log(chalk.cyan('\n🔄 After installation, run this command again:'));
         console.log(chalk.bold.white('  claw-on-daytona'));
+        console.log(chalk.gray('\n⚠️  Note: If URLs are inaccessible, search for "Daytona installation" or check the GitHub repository.'));
         process.exit(1);
       }
     }

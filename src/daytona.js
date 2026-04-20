@@ -143,11 +143,23 @@ class DaytonaManager {
       // Try the official installation script
       this.spinner.text = 'Running official installation script...';
       try {
+        // Try primary installation script
+        this.spinner.text = 'Trying official installation script...';
         await execa('sh', ['-c', 'curl -fsSL https://download.daytona.io/install.sh | sh'], { stdio: 'inherit' });
         this.spinner.succeed('Daytona installed successfully!');
         return true;
       } catch (scriptError) {
-        this.spinner.text = 'Installation script failed...';
+        this.spinner.text = 'Official script failed, trying GitHub...';
+        
+        try {
+          // Fallback to GitHub installation instructions
+          this.spinner.text = 'GitHub fallback...';
+          await execa('sh', ['-c', 'curl -fsSL https://raw.githubusercontent.com/daytonaio/daytona/main/install.sh | sh'], { stdio: 'inherit' });
+          this.spinner.succeed('Daytona installed successfully via GitHub!');
+          return true;
+        } catch (githubError) {
+          this.spinner.text = 'Installation script failed...';
+        }
       }
       
       // Method 2: Manual instructions
